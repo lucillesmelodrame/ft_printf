@@ -1,4 +1,4 @@
-NAME = libftprinft.a
+NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -7,20 +7,21 @@ CC = cc
 OBJECTS = $(SRCS:.c=.o)
 
 SRCS = ft_printf.c \
+		ft_helpers.c \
 
 all: $(NAME)
 
-NAME: $(OBJECTS)
+$(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJECTS)
+	rm -f $(OBJECTS)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
