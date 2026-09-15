@@ -6,11 +6,10 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 17:21:23 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/14 02:14:31 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/15 15:31:15 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 int	ft_putusnbr(unsigned int n)

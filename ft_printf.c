@@ -6,11 +6,10 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 15:12:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/14 10:53:51 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/15 15:31:21 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 int	ft_extract_format(const char format, va_list *args)

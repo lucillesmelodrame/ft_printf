@@ -10,9 +10,19 @@ SRCS = ft_printf.c \
 		ft_helpers.c \
 		ft_handles.c \
 
+LIBFTDIR=libft/
+LIBFTA:=libft.a
+LIBFT=$(LIBFTDIR)$(LIBFTA)
+
+INCLUDE=includes $(LIBFTDIR) .
+
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(LIBFT):
+	make -C $(LIBFTDIR)
+
+$(NAME): $(LIBFT) $(OBJECTS)
+	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
@@ -20,9 +30,11 @@ $(NAME): $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
+	make -C $(LIBFTDIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFTDIR) fclean
 
 re: fclean all
 
