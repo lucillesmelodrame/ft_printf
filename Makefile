@@ -8,6 +8,7 @@ OBJECTS = $(SRCS:.c=.o)
 
 SRCS = ft_printf.c \
 		ft_helpers.c \
+		ft_handles.c \
 
 all: $(NAME)
 

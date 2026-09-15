@@ -6,34 +6,29 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 15:12:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/14 01:18:15 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/14 10:53:51 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_printf.h"
 
-void	ft_extract_format(const char format, va_list *args)
+int	ft_extract_format(const char format, va_list *args)
 {
 	if (format == 'c')
-		ft_putchar_fd(va_arg(*args, int), 1);
+		return (ft_handlechar(args));
 	else if (format == 's')
-		ft_putstr_fd(va_arg(*args, char *), 1);
+		return (ft_handlestr(args));
 	else if (format == 'p')
-		ft_putptr(va_arg(*args, void *));
+		return (ft_putptr(va_arg(*args, void *)));
 	else if (format == 'i' || format == 'd')
-		ft_putnbr_fd(va_arg(*args, int), 1);
+		return (ft_handlenbr(args));
 	else if (format == 'u')
-		ft_putusnbr(va_arg(*args, unsigned int));
+		return (ft_putusnbr(va_arg(*args, unsigned int)));
 	else if (format == 'x' || format == 'X')
-		ft_puthexa(va_arg(*args, unsigned int), format);
-	else if (format == '%')
-		ft_putchar_fd('%', 1);
+		return (ft_puthexa(va_arg(*args, unsigned int), format));
 	else
-	{
-		ft_putchar_fd('%', 1);
-		ft_putchar_fd(format, 1);
-	}
+		return (ft_handleunknown(format));
 }
 
 int	ft_printf(const char *format, ...)
