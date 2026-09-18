@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 17:21:23 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/15 15:31:15 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/18 19:59:37 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	ft_putusnbr(unsigned int n)
 {
 	char	c;
-	int	count;
+	int		count;
 
 	count = 0;
 	if (n != 0)
 	{
 		if (n > 9)
-			ft_putusnbr(n / 10);
+			count += ft_putusnbr(n / 10);
 		n %= 10;
 	}
 	c = n + '0';
@@ -32,7 +32,7 @@ int	ft_putusnbr(unsigned int n)
 int	ft_puthexa(unsigned long n, const char format)
 {
 	char	c;
-	int	count;
+	int		count;
 
 	count = 0;
 	if (n != 0)
@@ -52,14 +52,14 @@ int	ft_puthexa(unsigned long n, const char format)
 int	ft_putptr(void *n)
 {
 	unsigned long	nbr;
-	int	count;
+	int				count;
 
 	nbr = (unsigned long)n;
 	count = 0;
 	if (n == NULL)
 	{
 		ft_putstr_fd("(nil)", 1);
-		return (0);
+		return (ft_strlen("(nil)"));
 	}
 	ft_putstr_fd("0x", 1);
 	count += 2;

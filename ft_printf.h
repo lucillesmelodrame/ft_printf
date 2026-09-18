@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 15:13:46 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/15 15:30:50 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/15 15:48:31 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
 int	ft_putusnbr(unsigned int n);
 int	ft_putptr(void *n);
 int	ft_puthexa(unsigned long n, const char format);

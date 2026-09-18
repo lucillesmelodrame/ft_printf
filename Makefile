@@ -8,11 +8,14 @@ OBJECTS = $(SRCS:.c=.o)
 
 SRCS = ft_printf.c \
 		ft_helpers.c \
-		ft_handles.c \
+		ft_handles.c
 
 LIBFTDIR=libft/
 LIBFTA:=libft.a
 LIBFT=$(LIBFTDIR)$(LIBFTA)
+
+HEADER = $(LIBFTDIR)libft.h \
+			ft_printf.h
 
 INCLUDE=includes $(LIBFTDIR) .
 
@@ -25,8 +28,8 @@ $(NAME): $(LIBFT) $(OBJECTS)
 	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJECTS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) $(INCLUDE:%=-I%) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS)

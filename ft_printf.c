@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 15:12:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/15 15:31:21 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/18 21:52:01 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ int	ft_extract_format(const char format, va_list *args)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	va_start(args, format);
 	size_t	i;
-	int	count;
+	int		count;
 
 	i = 0;
 	count = 0;
+	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] == '\0')
 		{
-			ft_extract_format(format[i + 1], &args);
+			count += ft_extract_format(format[i + 1], &args);
 			i++;
 		}
 		else
@@ -56,10 +56,11 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+/*
 #include <stdio.h>
 int	main(void)
 {
-	ft_printf("%p\n", NULL);
-	ft_printf("Value: %d end\n", 21);
-	printf("%p\n", NULL);
-}
+	ft_printf("%s\n", NULL);
+//	ft_printf("Value: %d end\n", 21);
+	printf("%s\n", NULL);
+} */
