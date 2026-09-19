@@ -6,7 +6,7 @@
 /*   By: sonfong <sonfong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 15:12:36 by sonfong           #+#    #+#             */
-/*   Updated: 2026/09/18 21:52:01 by melodrame        ###   ########.fr       */
+/*   Updated: 2026/09/18 22:31:36 by melodrame        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			count += ft_extract_format(format[i + 1], &args);
-			i++;
+			i += 2;
 		}
 		else
 		{
 			ft_putchar_fd(format[i], 1);
 			count++;
+			i++;
 		}
-		i++;
 	}
 	va_end(args);
 	return (count);
