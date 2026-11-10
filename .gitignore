@@ -1,0 +1,6 @@
+**/*.a
+**/*.o
+main.c
+main1.c
+maina.c
+a.out
